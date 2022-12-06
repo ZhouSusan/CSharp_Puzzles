@@ -80,6 +80,31 @@ namespace puzzles
 
             return headToTailRatio;
         }
+
+        static List<String> Names ()
+        {
+            Random rand = new Random();
+
+            var namesList = new List<String>();
+            namesList.Add("Todd");
+            namesList.Add("Tiffany");
+            namesList.Add("Charile");
+            namesList.Add("Geneva");
+            namesList.Add("Sydney");
+
+            var suffledList = namesList.OrderBy(x => rand.Next()).ToList();
+
+            
+            var result = from n in suffledList
+                         where n.Length > 5
+                         select n;
+
+            foreach(var name in result)
+            {
+                Console.WriteLine(name);
+            }
+            return namesList;
+        }
         public static void Main(String[] args)
         {
             Console.WriteLine("CSharp Puzzles in progress..");
@@ -90,7 +115,10 @@ namespace puzzles
             Console.WriteLine(TossCoin());
 
             Console.WriteLine("Toss Multiple Coins Test");
-            Console.WriteLine(TossMultipleCoins(10));
+            Console.WriteLine(TossMultipleCoins(100));
+
+            Console.WriteLine("Names Test");
+            Names();
         }
     }
 }
