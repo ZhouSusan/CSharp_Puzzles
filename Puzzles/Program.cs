@@ -37,11 +37,28 @@ namespace puzzles
             Console.WriteLine("Min: {0}, Max: {1}, Sum:{2}", min, max, sum);
             return randomArr;
         }
+
+        static String CoinToss()
+        {
+            Random rand = new Random();
+            int randNum = rand.Next(1, 11);
+
+            if (randNum < 6)
+            {
+                return "Heads";
+            } else
+            {
+                return "Tails";
+            }
+        }
         public static void Main(String[] args)
         {
             Console.WriteLine("CSharp Puzzles in progress..");
-            Console.WriteLine("Random Arrat Test");
+            Console.WriteLine("Random Array Test");
             RandomArray();
+
+            Console.WriteLine("Coin Toss Test");
+            Console.WriteLine(CoinToss());
         }
     }
 }
