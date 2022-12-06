@@ -40,6 +40,7 @@ namespace puzzles
 
         static String CoinToss()
         {
+            Console.WriteLine("Tossing a Coin!");
             Random rand = new Random();
             int randNum = rand.Next(1, 11);
 
