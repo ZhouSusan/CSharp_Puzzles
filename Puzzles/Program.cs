@@ -38,7 +38,7 @@ namespace puzzles
             return randomArr;
         }
 
-        static String CoinToss()
+        static String TossCoin()
         {
             Console.WriteLine("Tossing a Coin!");
             Random rand = new Random();
@@ -52,14 +52,45 @@ namespace puzzles
                 return "Tails";
             }
         }
+        
+        static double TossMultipleCoins(int num)
+        {
+            double headCount = 0;
+            double tailsCount = 0;
+            double headToTailRatio = 0;
+
+           for (int k = 0; k < num; k++)
+            {
+                String temp = TossCoin();
+                if (temp == "Heads")
+                {
+                    headCount++;
+                } else
+                {
+                    tailsCount++;
+                }
+            }
+
+            Console.WriteLine("Getting ratio of heads to tails.");
+            headToTailRatio = (headCount / tailsCount) * 100;
+            headToTailRatio = Math.Round(headToTailRatio, 2);
+
+            Console.WriteLine("You have flipped a coin {0} times.\nThe ratio of heads to tails is {1}.\nHeads: {2} and Tails: {3}"
+                , num, headToTailRatio, headCount, tailsCount);
+
+            return headToTailRatio;
+        }
         public static void Main(String[] args)
         {
             Console.WriteLine("CSharp Puzzles in progress..");
             Console.WriteLine("Random Array Test");
             RandomArray();
 
-            Console.WriteLine("Coin Toss Test");
-            Console.WriteLine(CoinToss());
+            Console.WriteLine("Toss Coin Test");
+            Console.WriteLine(TossCoin());
+
+            Console.WriteLine("Toss Multiple Coins Test");
+            Console.WriteLine(TossMultipleCoins(10));
         }
     }
 }
